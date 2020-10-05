@@ -12,7 +12,6 @@ let colors = [
 
 function PrintRandom() {
     let listStr = document.getElementById("inputField").value
-    let list;
     if (oldListStr != listStr) {
         oldListStr = listStr;
         list = listStr.split("\n");
@@ -32,14 +31,21 @@ function DrawBoard(list) {
     ctx.fillStyle = "white";
     ctx.fill();
 
+    let rnd = Math.floor(Math.random() * list.length);
+    console.log(list[rnd]);
+
     ctx.translate(250, 250);
-    ctx.rotate(Math.random() * Math.PI * 2);
+    console.log(rnd);
+    ctx.rotate(-Math.PI / 6 * rnd + Math.random());
+    console.log(-Math.PI / 6 * 1)
+    console.log(-Math.PI / 6 * rnd)
     ctx.translate(-250, -250);
 
     ctx.save();
     ctx.lineWidth = 2;
     ctx.translate(250, 250);
     for (i = 0; i < list.length; i++) {
+
         ctx.beginPath();
         ctx.moveTo(0, 0);
         ctx.rotate(Math.PI * 2 / list.length);
