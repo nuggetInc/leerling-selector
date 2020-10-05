@@ -40,14 +40,17 @@ function DrawBoard(list) {
     ctx.lineWidth = 2;
     ctx.translate(250, 250);
     for (i = 0; i < list.length; i++) {
-
         ctx.beginPath();
         ctx.moveTo(0, 0);
         ctx.rotate(Math.PI * 2 / list.length);
         ctx.arc(0, 0, 245, 0, Math.PI * 2 / list.length);
         ctx.closePath();
         //ctx.lineTo(250, 0);
-        ctx.fillStyle = colors[i % 6];
+        if (i == list.length - 1 && list.length % 6 == 1) {
+            ctx.fillStyle = colors[i % 6];
+        } else {
+            ctx.fillStyle = colors[(i + 3) % 6];
+        }
         ctx.fill();
     }
     ctx.restore();
