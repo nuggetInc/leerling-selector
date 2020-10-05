@@ -47,11 +47,7 @@ function DrawBoard(list) {
         ctx.arc(0, 0, 245, 0, Math.PI * 2 / list.length);
         ctx.closePath();
         //ctx.lineTo(250, 0);
-        if (list.length == i && list.length % 6 == 1) {
-            ctx.fillStyle = colors[i % 6];
-        } else {
-            ctx.fillStyle = colors[i % 6 + 1];
-        }
+        ctx.fillStyle = colors[i % 6];
         ctx.fill();
     }
     ctx.restore();
