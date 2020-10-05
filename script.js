@@ -23,6 +23,7 @@ function PrintRandom() {
 function DrawBoard(list) {
     let c = document.getElementById("canvas");
     let ctx = c.getContext("2d");
+    ctx.save();
     ctx.beginPath();
     ctx.arc(250, 250, 245, 0, 2 * Math.PI);
     ctx.closePath();
@@ -36,9 +37,7 @@ function DrawBoard(list) {
 
     ctx.translate(250, 250);
     console.log(rnd);
-    ctx.rotate(-Math.PI / 6 * rnd + Math.random());
-    console.log(-Math.PI / 6 * 1)
-    console.log(-Math.PI / 6 * rnd)
+    ctx.rotate(-Math.PI / 3 * (rnd + Math.random()));
     ctx.translate(-250, -250);
 
     ctx.save();
@@ -86,6 +85,10 @@ function DrawBoard(list) {
         iterations: 1,
         easing: "ease-out"
     });
+
+
+    list.splice(rnd, 1);
+    ctx.restore();
 }
 
 window.onload = () => {
