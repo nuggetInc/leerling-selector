@@ -84,5 +84,5 @@ function DrawBoard(list) {
 }
 
 window.onload = () => {
-    DrawBoard(["hiiiii"]);
+    DrawBoard([]);
 }
